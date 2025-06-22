@@ -1,3 +1,7 @@
+# Overview
+
+This autocomplete feature, utilizes a series of binary searches on an alphabetically sorted list of strings, representing the items. The purpose of the binary searches is to find the upper and lower bounds of the position of a prefix input, a slice of the list is then returned carrying all the strings that carry this input as a prefix.
+
 # Project Setup and Usage Guide
 
 ## 📂 Directory Setup
