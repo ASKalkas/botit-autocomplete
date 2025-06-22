@@ -22,7 +22,6 @@ with open(UNIQUE_DIR, encoding="utf-8") as fh:
 lexicon.sort()   
 
 def prefix_range(words, prefix):
-    # Find range of words matching the prefix
     import bisect
     
     left = bisect.bisect_left(words, prefix)
@@ -37,7 +36,6 @@ def prefix_range(words, prefix):
     right = bisect.bisect_left(words, next_prefix(prefix))
     return left, right
 
-# Function to get autocomplete suggestions
 def get_autocomplete(prefix):
     left, right = prefix_range(lexicon, prefix)
     return lexicon[left:right]
@@ -57,6 +55,4 @@ def autocomplete(prefix: str, top: int = 10):
 
 
 if __name__ == "__main__":
-    # quick test when run as script
-    print(autocomplete("was"))
     uvicorn.run("autocomplete:app", host="0.0.0.0", port=8000, reload=True)
