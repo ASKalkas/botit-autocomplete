@@ -1,0 +1,9 @@
+services:
+  autocomplete:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: autocomplete
+    ports:
+      - 8000:8000
+    command: /app/docker/start.sh
