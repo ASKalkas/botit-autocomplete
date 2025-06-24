@@ -23,21 +23,47 @@ docker compose up autocomplete --build
 
 ---
 
-## 🌐 WebSocket API
+## 🌐 APIs
+### 1- Auto-complete Inference
 **Endpoint**: 
 ```plaintext
 http://0.0.0.0:8000/autocomplete
 ```
 
-### Parameters
+#### Parameters
 - `prefix`: the autocomplete query
 - `top`: number that represents the top n results needed
 
-### Response (JSON):
+#### Response (JSON):
 ```plaintext
 Just a list of the top n autocomplete results
 ```
 
+### 2- Add Item
+**Endpoint**:
+```plaintext
+http://0.0.0.0:8000/add_item
+```
+
+#### Body
+```plaintext
+{
+    "_id": str, MongoID of the item,
+    "name": str,
+    "shopping_category": str,
+    "shopping_subcategory": str,
+    "item_category": str,
+    "item_subcategory": str,
+    "tags_dsw": [str],
+    "tags_gsw": [str]
+}
+```
+
+### 3- Delete Item
+**Endpoint**:
+```plaintext
+http://0.0.0.0:8000/delete/{itemID}
+```
 ---
 
 ## 🔍 Test Connection with Postman
